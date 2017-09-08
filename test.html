@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script
+  src="https://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous"></script>
+<script>
+  var a1= {
+    id: 'scenarioBar4_1',
+    colorList: ['#dbdbdb', '#bcbcbc', '#919191', '#686868', '#4d4d4d']
+  };
+    var a2= {
+    id: 'scenarioBar4_3',
+    type: 'bar',
+    xAxisData: ['车辆', '燃料', '路桥费', '维修', '运输'],
+    seriesData: [2200, 1200, 1000, 2200, 1200, ]
+  }
+  var a3= $.extend(true,{},a2,a1)
+  console.log(a3)
+</script>
+</body>
+</html>
