@@ -167,7 +167,7 @@
     font-size:10px;
     border-radius:12px;
     color: #fff;
-    background-color: rgb(0,160,220);
+    // background-color: rgb(0,160,220);
   }
 }
 
