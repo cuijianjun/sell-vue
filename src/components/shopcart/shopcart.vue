@@ -213,9 +213,6 @@
 </script>
 
 <style scoped lang='less' rel="stylesheet/less">
-/*  .drop-enter-active, .drop-enter{
-    transition: all 0.8s cubic-bezier(0.49,-0.29,0.75,0.41);
-  }*/
   .shopcart{
     position: fixed;
     left:0;
