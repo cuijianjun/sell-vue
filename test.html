@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    table.default-table{
+      /* -moz-border-radius: 5px;
+      -webkit-border-radius:5px;
+      border-radius:5px; */
+      width: 100%;
+      border:solid #333;
+      border-width:1px 0px 0px 1px;
+      font-size: #333;
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+    table.default-table tbody tr{
+      height: 20px;
+      line-height: 20px;
+    }
+    table.default-table tbody tr.odd{
+      background-color: #fff;
+    }
+    table.default-table tbody tr.even{
+      background-color: #F5F5F5;
+    }
+    table.default-table tbody tr:hover{
+      background-color: #eee;
+    }
+    table.default-table tbody tr th,table.default-table tbody tr td{
+      padding:3px 5px;
+      text-align: left;
+      /* border: 1px solid #ddd; */
+      border:solid #333;
+      border-width:0px 1px 1px 0px;
+    }
+    table.default-table tbody tr th{
+      font-weight: bold;
+      text-align: center;
+    }
+
+    table.default-table tbody tr td.tac{
+      text-align: center;
+    }
+    table.default-table tbody tr td a:hover{
+      color:#0080c0;
+    }
+  </style>
+</head>
+<body>
+<table class="default-table" id="table">
+  <tr>
+    <th>序号</th>
+    <th>产品名称</th>
+    <th>规格</th>
+    <th>数量</th>
+    <th>单位</th>
+  </tr>
+  <!--<tr>
+    <td class="tac">1</td>
+    <td>这是标题这是标题这是标题这是标题这是标题这是标题</td>
+    <td class="tac">AAA</td>
+    <td class="tac">6</td>
+    <td class="tac">个</td>
+  </tr>-->
+</table>
+</body>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+<script>
+
+ $(function(){
+
+   var data ={"response_code":1,"current_campus":3,"campus_rank":{"top_list":[{"campus_id":2,"name":"\u54c8\u4f5b\u5927\u5b66","power":29120,"rank":1},{"campus_id":3,"name":"\u5317\u4eac\u5927\u5b66","power":14700,"rank":2},{"campus_id":4,"name":"\u5317\u4eac\u822a\u7a7a\u822a\u5929\u5927\u5b66","power":4790,"rank":3},{"campus_id":9,"name":"\u534e\u5317\u7535\u529b\u5927\u5b66","power":2760,"rank":4},{"campus_id":12,"name":"\u4e0a\u6d77\u4ea4\u901a\u5927\u5b66","power":2320,"rank":5},{"campus_id":11,"name":"\u897f\u5b89\u4ea4\u901a\u5927\u5b66","power":1900,"rank":6},{"campus_id":6,"name":"\u6e05\u534e\u5927\u5b66","power":1560,"rank":7},{"campus_id":13,"name":"\u590d\u65e6\u5927\u5b66","power":1430,"rank":8},{"campus_id":10,"name":"\u5317\u4eac\u519c\u5b66\u9662","power":1200,"rank":9},{"campus_id":7,"name":"\u5c71\u4e1c\u5927\u5b66","power":1100,"rank":10}],"surround_list":[{"campus_id":2,"name":"\u54c8\u4f5b\u5927\u5b66","power":29120,"rank":1},{"campus_id":3,"name":"\u5317\u4eac\u5927\u5b66","power":14700,"rank":2},{"campus_id":4,"name":"\u5317\u4eac\u822a\u7a7a\u822a\u5929\u5927\u5b66","power":4790,"rank":3}]},"student_rank":[{"name":"\u9636\u6bb5\u8d5b\u7b2c\u4e00\u6b21\u6a21\u8003","top_list":[{"rank":1,"user_id":1540280,"nickname":"","avatar":"","campus":"","score":60.6,"duration":0}],"surround_list":[]},{"name":"\u9636\u6bb5\u8d5b\u7b2c\u4e09\u6b21\u6a21\u8003","top_list":[{"rank":1,"user_id":488955,"nickname":"\u59da\u4e16\u6770","avatar":"https:\/\/wx.qlogo.cn\/mmopen\/vi_32\/Q0j4TwGTfTIbrib8HsbmuB1nR3bcIAIAQPzOX7RHaCGNY5ZCMEGdMSpnFA61Qw57bLzYdz2b95lDCGqFTSJdXnA\/0","campus":"","score":33.7,"duration":0}],"surround_list":[]}],"final_valid":true,"final_rank":null}
+   var tableBox = document.getElementById("table").getElementsByTagName("tbody")//$('#table').find('tbody')
+   for(var i = 0;i<data.student_rank.length;i++){
+     for(var j = 0;j<data.student_rank[i].top_list.length;j++){
+       var temp = data.student_rank[i].top_list[j];
+       var child =
+         '+<tr><td>'+temp.user_id+'</td>'
+         + '<td>'+temp.rank+'</td>'
+         +'<td>'+temp.score+'</td>'
+         +'<td>'+temp.nickname+'</td>'
+         +'<td>'+temp.campus+'</td></tr>>';
+       tableBox.appendChild(child)
+     }
+   }
+ })
+</script>
+</html>
