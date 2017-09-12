@@ -3,15 +3,15 @@
     <div class="rating-type">
       <span class= "block positive" :class="{'active':selectType === 2}" @click='select(2,$event)'>
         {{desc.all}}
-        <span class="count">47</span>
+        <span class="count">{{ratings.length}}</span>
       </span>
       <span class= "block positive" :class="{'active':selectType === 0}" @click='select(0,$event)'>
         {{desc.positive}}
-        <span class="count">40</span>
+        <span class="count">{{positives.length}}</span>
       </span>
       <span class= "block negative" :class="{'active':selectType === 1}" @click='select(1,$event)'>
         {{desc.negative}}
-        <span class="count">7</span>
+        <span class="count">{{negatives.length}}</span>
       </span>
     </div>
     <div class="switch" :class="{'on':onlyContent}" @click='toggleContent'>
@@ -22,8 +22,8 @@
 </template>
 
 <script type="text/ecmascript-6">
-  // const POSITIVE = 0
-  // const NEGATIVE = 1
+  const POSITIVE = 0
+  const NEGATIVE = 1
   const ALL = 2
 
   export default {
@@ -53,13 +53,25 @@
         }
       }
     },
+    computed: {
+      positives() {
+        return this.ratings.filter((rating) => {
+          return rating.rateType === POSITIVE
+        })
+      },
+      negatives() {
+        return this.ratings.filter((rating) => {
+          return rating.rateType === NEGATIVE
+        })
+      }
+    },
     methods: {
       select(type, event) {
         if (!event._constructed) {
           return
         }
         this.selectType = type
-        this.$root.eventHub.$emit('ratingtype.select',type)
+        this.$root.eventHub.$emit('ratingtype.select', type)
       },
       toggleContent(event) {
         if (!event._constructed) {
