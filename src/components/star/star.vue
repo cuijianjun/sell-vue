@@ -47,7 +47,7 @@
 <style scoped lang='less' rel='stylesheet/less'>
   .bg-image(@url){
     background-image: url(~"@{url}@2x.png");
-  @madia (-webkit-min-device-pixel-ratio:3),(min-device-pixel-ratio:3){
+  @media (-webkit-min-device-pixel-ratio:3),(min-device-pixel-ratio:3){
     background-image: url(~"@{url}@3x.png")
   };
   }
