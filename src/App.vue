@@ -36,26 +36,25 @@
 </script>
 
 <style lang='less' rel="stylesheet/less">
-  @import 'common/style/style.css';
-  #app{
-    .tab{
-      display: flex;
-      width: 100%;
-      height:40px;
-      line-height:40px;
-      .tab-item{
-        flex: 1;
-        text-align:center;
-        &>a{
-          display: block;
-          font-size:14px;
-          color: rbg(77,85,93);
-          &.active{
-            color: reb(240, 20, 20);
-          }
-        }
+.tab{
+  display: flex;
+  width: 100%;
+  height:40px;
+  line-height:40px;
+  border-bottom: 1px solid rgba(7, 17, 27, 0.1);
+  .tab-item{
+    flex: 1;
+    text-align:center;
+    & > a{
+      display: block;
+      font-size:14px;
+      color: rbg(77,85,93);
+      &.active{
+        color: rgb(240, 20, 20);
       }
-
     }
   }
+
+}
+
 </style>
