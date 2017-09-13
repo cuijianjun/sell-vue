@@ -2,13 +2,14 @@
 
 公司新框架vue的使用及搭建，本项目仅用于初学者（我这里是测试一下框架的配置情况）,用处还是挺多的,
 这里使用
-    vue 2.3.3
-    express（本地服务）
-    vue.router
-    vue.axios
-    better-scroll
-    less
-    json-mock
+>
+  -  vue 2.3.3
+  -  express（本地服务）
+  -  vue.router
+  -  vue.axios
+  -  better-scroll
+  -  less
+  -  json-mock
 对知识的整体把握会有较高程度的提高
 
 [项目演示地址](http://vuejssellapp.t.imooc.io/#!/)
@@ -35,32 +36,7 @@
 [具体要点阐述](https://segmentfault.com/a/1190000008045579)
 
 
-欢迎交流指正 qq:376247934
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## 欢迎交流指正 qq:376247934
 
 
 # sell
