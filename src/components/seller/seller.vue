@@ -1,5 +1,5 @@
 <template>
-  <div class="seller">
+  <div class="seller" ref="seller">
     <div class="seller-content">
       <div class="overview">
         <h1 class="title">{{seller.name}}</h1>
@@ -42,6 +42,17 @@
           </li>
         </ul>
       </div>
+      <split></split>
+      <div class="pics">
+        <h1 class="title">商家实景</h1>
+        <div class="pic-wrapper" ref="picWrapper">
+          <ul class="pic-list" ref="picList">
+            <li class="pic-item" v-for="pic in seller.pics">
+              <img :src="pic" width="120" height="90">
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -64,6 +75,13 @@
         this._initScroll()
         this._initPics()
       })
+    },
+    watch: {
+      'seller'() {
+        this.$nextTick(() => {
+          this._initScroll()
+        })
+      }
     },
     methods: {
       _initScroll() {
@@ -192,6 +210,9 @@
           padding: 16px 12px;
           border-bottom:1px solid rgba(7, 17, 27, 0.1);
           font-size: 0;
+          &:last-child:after{
+            display: none;
+          }
         }
         .icon{
           display: inline-block;
@@ -223,6 +244,32 @@
           color: rgb(7, 17, 27);
         }
 
+      }
+    }
+    .pics{
+      padding: 18px;
+      .title{
+        margin-bottom: 12px;
+        line-height: 14px;
+        color: rgb(7, 17, 27);
+        font-size: 14px;
+      }
+      .pic-wrapper{
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        .pic-list{
+          font-size: 0;
+          .pic-item{
+            display: inline-block;
+            margin-right: 6px;
+            width: 120px;
+            height: 90px;
+            &:last-child{
+              margin: 0;
+            }
+          }
+        }
       }
     }
   }
