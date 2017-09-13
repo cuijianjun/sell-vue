@@ -3,7 +3,7 @@
     <div class="seller-content">
       <div class="overview">
         <h1 class="title">{{seller.name}}</h1>
-        <div class="desc border-1px">
+        <div class="desc">
           <star :size="36" :score="seller.score"></star>
           <span class="text">({{seller.ratingCount}})</span>
           <span class="text">月售{{seller.sellCount}}单</span>
@@ -28,6 +28,10 @@
             </div>
           </li>
         </ul>
+        <div class="favorite" >
+          <span class="icon-favorite" :class="{'active':favorite}"></span>
+          <span class="text">{{favoriteText}}</span>
+        </div>
       </div>
       <split></split>
       <div class="bulletin">
@@ -53,6 +57,13 @@
           </ul>
         </div>
       </div>
+      <split></split>
+      <div class="info">
+        <h1 class="title border-1px">商家信息</h1>
+        <ul>
+          <li class="info-item" v-for="info in seller.infos">{{info}}</li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -65,6 +76,16 @@
     props: {
       seller: {
         type: Object
+      }
+    },
+    data() {
+      return {
+        favorite: false
+      }
+    },
+    computed: {
+      favoriteText() {
+        return this.favorite ? '已收藏' : '收藏'
       }
     },
     created() {
@@ -80,6 +101,7 @@
       'seller'() {
         this.$nextTick(() => {
           this._initScroll()
+          this._initPics()
         })
       }
     },
@@ -187,6 +209,28 @@
           }
         }
       }
+      .favorite{
+        position: absolute;
+        width: 50px;
+        right: 11px;
+        top: 18px;
+        text-align: center;
+        .icon-favorite{
+          display: block;
+          margin-bottom: 4px;
+          line-height: 24px;
+          font-size: 24px;
+          color: #d4d6d9;
+          &.active{
+            color: rgb(240, 20, 20)
+          }
+        }
+        .text{
+          line-height: 10px;
+          font-size: 10px;
+          color: rgb(77, 85, 93);
+        }
+      }
     }
     .bulletin{
       padding: 18px 18px 0 18px;
@@ -270,6 +314,22 @@
             }
           }
         }
+      }
+    }
+    .info{
+      padding: 18px 18px 0 18px;
+      color: rgb(7, 17, 27);
+      .title{
+        padding-bottom: 12px;
+        line-height: 14px;
+        border-bottom:1px solid rgba(7, 17, 27, 0.1);
+        font-size: 14px;
+      }
+      .info-item{
+        padding: 16px 12px;
+        line-height: 16px;
+        border-bottom:1px solid rgba(7, 17, 27, 0.1);
+        font-size: 12px;
       }
     }
   }
