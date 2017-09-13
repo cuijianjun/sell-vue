@@ -10,7 +10,7 @@
   -  better-scroll
   -  less
   -  json-mock
-对知识的整体把握会有较高程度的提高
+## 对知识的整体把握会有较高程度的提高
 
 [项目演示地址](http://vuejssellapp.t.imooc.io/#!/)
 
